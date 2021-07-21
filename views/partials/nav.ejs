@@ -2,13 +2,15 @@
 </head>
 <body>
   <nav>
-    <div>
-      <i class="fas fa-music tt-logo"></i>
-      <h1 class="inline">TopTunes</h1>
+    <div class="flex-row">
+      <a href="/"><i class="fas fa-music tt-logo"></i></a>
+      <a href="/"><h1 class="inline">TopTunes</h1></a>
     </div>
     <div class="flex-row">
       <% if (self) { %>
-        <h3>Hello, <%= self.displayName %></h3>
+        <a href="/profiles/<%= self._id %>">
+          <h3>Hello, <%= self.displayName %></h3>
+        </a>
         <a href="/profiles/<%= self._id %>">
           <img 
           class="pfp"

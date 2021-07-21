@@ -12,7 +12,6 @@ function isLoggedIn(req, res, next) {
 
 function passUserToView(req, res, next) {
   res.locals.user = req.user ? req.user : null
-  console.log(req.user);
   Profile.findById(req.user?._id)
   .then(profile => {
     res.locals.self = profile

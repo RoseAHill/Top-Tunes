@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div class="profile-info">
+    <img class="user-pfp" src="<%= profile.avatar %>" alt="<%= profile.displayName %>'s avatar">
+    <div class="profile-details">
+      <h1><%= profile.displayName %></h1>
+      <% if (profile.topTune) { %>
+        <h3><%= profile.displayName %>'s Top Tune</h3>
+        <p><%= profile.topTune %></p>
+      <% } else if ( isSelf ) { %>
+        <a href="/">Add a top tune!</a>
+      <% } %>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

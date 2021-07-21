@@ -4,6 +4,21 @@ export {
   Profile
 }
 
+const recommendationSchema = new mongoose.Schema(
+  {
+    song: {
+      type: String
+    },
+    mood: [String],
+    recMessage: {
+      type: String,
+      default: "Check out this song!",
+    }
+  }, {
+    timestamps: true
+  }
+)
+
 const profileSchema = new mongoose.Schema(
   {
     spotifyId: String,
@@ -16,7 +31,8 @@ const profileSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    recommendations: [String]
+    topTune: [String],
+    recommendations: [recommendationSchema]
   }, {
     timestamps: true
   }

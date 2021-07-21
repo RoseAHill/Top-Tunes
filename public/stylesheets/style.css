@@ -45,7 +45,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   background-color: var(--tt-black);
 }
 
@@ -69,7 +68,6 @@ main {
   padding: 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   background: var(--tt-white);
   box-shadow: inset 8px 8px 15px #979e9a;
