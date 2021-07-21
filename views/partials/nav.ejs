@@ -1,0 +1,23 @@
+<title>Toptunes | <%= title %></title>
+</head>
+<body>
+  <nav>
+    <% if (self) { %>
+      <h3>Hello, <%= self.displayName %></h3>
+      <a href="/profiles/<%= self._id %>">
+        <img 
+        class="pfp"
+        height="64px"
+        src="<%= self.avatar %>"
+        alt="<%= self.displayName %> avatar"
+        >
+      </a>
+      <a href="/auth/logout">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    <% } else { %>
+      <a href="/auth/spotify">
+        Sign in
+      </a>
+    <% } %>
+  </nav>
