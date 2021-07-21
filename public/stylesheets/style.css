@@ -1,5 +1,6 @@
 html {
-  box-sizing: border-box
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 /* The Universal Selector */
@@ -14,28 +15,70 @@ html {
 /* resets font size to be 62.5% of the user preference - 
      in most browser configurations this will be 10px */
 :root {
-    font-size: 62.5%
+    font-size: 62.5%;
+    /* colors */
+    --tt-white: #D8E2DC;
+    --tt-black: #220C10;
+    --tt-red: #F94144;
+    --tt-orange: #F3722C;
+    --tt-gold: #F8961E;
+    --tt-yellow: #F9C74F;
+    --tt-green: #90BE6D;
+    --tt-turquoise: #43AA8B;
+    --tt-blue: #577590;
+}
+
+body {
+  /* Use a system font, if none are available use an available sans-sarif font */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--tt-white);
+  color: var(--tt-black);
+  height: 100%;
+  margin: 0;
 }
 
 nav {
+  height: 10%;
+  padding: 0 2rem;
   font-size: 1.6rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--tt-black);
 }
 
 nav > * {
   font-size: 2rem;
   margin: 0.8rem;
+  color: var(--tt-gold);
+}
+
+i.tt-logo {
+  font-size: 3rem;
+  color: var(--tt-gold);
+}
+
+main {
+  height: 90%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--tt-white);
+  box-shadow: inset 8px 8px 15px #979e9a;
 }
 
 a {
   text-decoration: none;
+  color: var(--tt-gold);
+  font-weight: bold;
 }
 
 footer {
-  font-size: 2rem;
+  font-size: 1.5rem;
   position: absolute;
   bottom: 0;
   right: 2rem;
@@ -44,4 +87,8 @@ footer {
 
 .pfp {
   border-radius: 50%;
+}
+
+.inline {
+  display: inline;
 }
