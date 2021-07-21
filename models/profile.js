@@ -7,7 +7,8 @@ export {
 const recommendationSchema = new mongoose.Schema(
   {
     song: {
-      type: String
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Song'
     },
     mood: [String],
     recMessage: {
