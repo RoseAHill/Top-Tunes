@@ -5,7 +5,7 @@ const router = Router()
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Home Page',
-    
+    self: res.locals.self ? res.locals.self : null
   })
 })
 

@@ -1,8 +1,47 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+    font-size: 62.5%
+}
+
+nav {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > * {
+  font-size: 2rem;
+  margin: 0.8rem;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+footer {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  text-align: right;
+}
+
+.pfp {
+  border-radius: 50%;
 }
