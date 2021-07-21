@@ -2,22 +2,28 @@
 </head>
 <body>
   <nav>
-    <% if (self) { %>
-      <h3>Hello, <%= self.displayName %></h3>
-      <a href="/profiles/<%= self._id %>">
-        <img 
-        class="pfp"
-        height="64px"
-        src="<%= self.avatar %>"
-        alt="<%= self.displayName %> avatar"
-        >
-      </a>
-      <a href="/auth/logout">
-        <i class="fas fa-sign-out-alt"></i>
-      </a>
-    <% } else { %>
-      <a href="/auth/spotify">
-        Sign in
-      </a>
-    <% } %>
+    <div>
+      <i class="fas fa-music tt-logo"></i>
+      <h1 class="inline">TopTunes</h1>
+    </div>
+    <div>
+      <% if (self) { %>
+        <h3>Hello, <%= self.displayName %></h3>
+        <a href="/profiles/<%= self._id %>">
+          <img 
+          class="pfp"
+          height="64px"
+          src="<%= self.avatar %>"
+          alt="<%= self.displayName %> avatar"
+          >
+        </a>
+        <a href="/auth/logout">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      <% } else { %>
+        <a href="/auth/spotify">
+          Sign in
+        </a>
+      <% } %>
+    </div>
   </nav>
