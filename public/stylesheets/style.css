@@ -55,6 +55,10 @@ nav > * {
   color: var(--tt-gold);
 }
 
+nav > div > * {
+  display: inline;
+}
+
 i.tt-logo {
   font-size: 3rem;
   color: var(--tt-gold);
@@ -85,10 +89,14 @@ footer {
   text-align: right;
 }
 
-.pfp {
-  border-radius: 50%;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.inline {
-  display: inline;
+.pfp {
+  border-radius: 50%;
+  margin: 1rem;
 }

@@ -13,6 +13,7 @@ import { passUserToView } from './middleware/middleware.js'
 
 // router imports
 import { router as indexRouter } from './routes/index.js'
+import { router as authRouter } from './routes/auth.js';
 import { router as usersRouter } from './routes/users.js'
 
 // create the express app
@@ -58,7 +59,11 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+// custom middleware
+app.use(passUserToView)
+
 app.use('/', indexRouter)
+app.use('/auth', authRouter)
 app.use('/users', usersRouter)
 
 // catch 404 and forward to error handler
