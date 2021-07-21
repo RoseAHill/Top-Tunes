@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
 
 export {
-  User
+  Profile
 }
 
-const userSchema = new mongoose.Schema(
+const profileSchema = new mongoose.Schema(
   {
     spotifyId: String,
     displayName: String,
@@ -22,4 +22,4 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-const User = mongoose.model('User', userSchema)
+const Profile = mongoose.model('Profile', profileSchema)

@@ -1,4 +1,4 @@
-import { User } from "../models/user.js"
+import { Profile } from "../models/profile.js"
 
 export {
   passUserToView,
@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
 function passUserToView(req, res, next) {
   res.locals.user = req.user ? req.user : null
   console.log(req.user);
-  User.findById(req.user?._id)
+  Profile.findById(req.user?._id)
   .then(profile => {
     res.locals.self = profile
     next()
