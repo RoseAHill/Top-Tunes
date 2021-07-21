@@ -1,16 +1,28 @@
 import 'dotenv/config.js'
 import createError from 'http-errors'
+import session from 'express-session'
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import methodOverride from 'method-override'
+import passport from 'passport'
 
+// custom middleware import
+import { passUserToView } from './middleware/middleware.js'
+
+// router imports
 import { router as indexRouter } from './routes/index.js'
 import { router as usersRouter } from './routes/users.js'
 
+// create the express app
 const app = express()
+
+// configure mongoose
+import('./config/database.js')
+
+// configure passport
+import('./config/passport.js')
 
 // view engine setup
 app.set(
@@ -19,6 +31,7 @@ app.set(
 )
 app.set('view engine', 'ejs')
 
+// middleware
 app.use(methodOverride('_method'))
 app.use(logger('dev'))
 app.use(express.json())
@@ -29,6 +42,22 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+
+// session middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'lax'
+    }
+  })
+)
+
+// passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
