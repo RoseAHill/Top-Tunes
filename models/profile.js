@@ -4,13 +4,17 @@ export {
   Profile
 }
 
-const recommendationSchema = new mongoose.Schema(
+const recSchema = new mongoose.Schema(
   {
     song: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Song'
     },
-    mood: [String],
+    mood: [{
+      type: String,
+      enum: ["neutral", "focus", "energize", "chill", "positive", "grieve"],
+      default: "neutral"
+    }],
     recMessage: {
       type: String,
       default: "Check out this song!",
@@ -32,8 +36,11 @@ const profileSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    topTune: [String],
-    recommendations: [recommendationSchema]
+    topTune: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Song',
+    },
+    recs: [recSchema]
   }, {
     timestamps: true
   }

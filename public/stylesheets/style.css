@@ -34,6 +34,7 @@ body {
   Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   background-color: var(--tt-white);
   color: var(--tt-black);
+  font-size: 1.4rem;
   height: 100%;
   margin: 0;
 }
@@ -77,6 +78,15 @@ a {
   text-decoration: none;
   color: var(--tt-gold);
   font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
 }
 
 footer {
