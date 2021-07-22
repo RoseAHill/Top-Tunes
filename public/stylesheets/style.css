@@ -97,7 +97,7 @@ textarea {
 }
 
 textarea, input[type=url] {
-  border: var(--tt-turquoise) solid 2px;
+  border: var(--tt-gold) solid 2px;
   border-radius: 2rem;
   padding: 1rem;
   font-family: var(--tt-font);
@@ -105,7 +105,7 @@ textarea, input[type=url] {
 
 textarea:focus, input[type=url]:focus {
   border-radius: 1.5rem;
-  border: var(--tt-blue) solid 3px;
+  border: var(--tt-turquoise) solid 3px;
 }
 
 footer {
