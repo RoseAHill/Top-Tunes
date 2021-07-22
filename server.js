@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import fetch from 'node-fetch'
 
 // custom middleware import
 import { passUserToView } from './middleware/middleware.js'
