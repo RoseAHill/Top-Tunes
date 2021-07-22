@@ -85,10 +85,6 @@ form {
   flex-direction: column;
 }
 
-textarea {
-  resize: none;
-}
-
 footer {
   font-size: 1.5rem;
   position: absolute;
