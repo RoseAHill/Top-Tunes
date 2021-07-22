@@ -8,13 +8,27 @@ export {
 }
 
 function newRec(req, res) {
-  
+  Profile.findById(req.user._id)
+  .then(self => {
+    res.render('profiles/newRec', {
+      title: 'Recommend',
+      self,
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function recommend(req, res) {
   Profile.findById(req.user._id)
   .then(self => {
     res.redirect(`/profiles/${self._id}/recs/new`)
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect('/')
   })
 }
 
@@ -39,5 +53,5 @@ function show(req, res) {
 }
 
 function index(req, res) {
-  res.show("Respond with a resource")
+  res.redirect(`/profiles/${req.user._id}`)
 }

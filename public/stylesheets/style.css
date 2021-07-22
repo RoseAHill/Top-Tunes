@@ -16,7 +16,9 @@ html {
      in most browser configurations this will be 10px */
 :root {
     font-size: 62.5%;
-    /* colors */
+    /* vars */
+    --tt-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --tt-white: #D8E2DC;
     --tt-black: #220C10;
     --tt-red: #F94144;
@@ -30,8 +32,7 @@ html {
 
 body {
   /* Use a system font, if none are available use an available sans-sarif font */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: var(--tt-font);
   background-color: var(--tt-white);
   color: var(--tt-black);
   font-size: 1.4rem;
@@ -83,6 +84,28 @@ a {
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+form > * {
+  font-size: 1.5rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}
+
+textarea, input[type=url] {
+  border: var(--tt-turquoise) solid 2px;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-family: var(--tt-font);
+}
+
+textarea:focus, input[type=url]:focus {
+  border-radius: 1.5rem;
+  border: var(--tt-blue) solid 3px;
 }
 
 footer {
@@ -96,7 +119,7 @@ footer {
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -107,4 +130,12 @@ footer {
 .pfp {
   border-radius: 50%;
   margin: 1rem;
+}
+
+.top-margin {
+  margin-top: 3rem;
+}
+
+.top-margin > form > * {
+  margin-top: 3rem;
 }
