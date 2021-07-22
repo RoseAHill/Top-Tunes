@@ -2,9 +2,15 @@
 </head>
 <body>
   <nav>
-    <div class="flex-row">
-      <a href="/"><i class="fas fa-music tt-logo"></i></a>
-      <a href="/"><h1 class="inline">TopTunes</h1></a>
+    <div class="flex-row nav-left">
+      <div class="logo flex-row">
+        <a href="/"><i class="fas fa-music tt-logo"></i></a>
+        <a href="/"><h1 class="inline">TopTunes</h1></a>
+      </div>
+      <a href="/songs">Browse</a>
+      <% if (self) { %>
+        <a href="/profiles/recommend">Recommend</a>
+      <% } %>
     </div>
     <div class="flex-row">
       <% if (self) { %>

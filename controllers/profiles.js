@@ -3,6 +3,19 @@ import { Profile } from '../models/profile.js'
 export {
   index,
   show,
+  recommend,
+  newRec,
+}
+
+function newRec(req, res) {
+  
+}
+
+function recommend(req, res) {
+  Profile.findById(req.user._id)
+  .then(self => {
+    res.redirect(`/profiles/${self._id}/recs/new`)
+  })
 }
 
 function show(req, res) {

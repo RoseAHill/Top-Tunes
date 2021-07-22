@@ -100,6 +100,10 @@ footer {
   align-items: center;
 }
 
+.nav-left > * {
+  padding-right: 2.5rem;
+}
+
 .pfp {
   border-radius: 50%;
   margin: 1rem;
