@@ -5,6 +5,11 @@ export {
   show,
   recommend,
   newRec,
+  createRec,
+}
+
+function createRec(req, res) {
+  
 }
 
 function newRec(req, res) {
