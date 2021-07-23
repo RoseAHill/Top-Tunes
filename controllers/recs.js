@@ -39,7 +39,7 @@ function create(req, res) {
             spotifyId: songId,
             songTitle: json.name,
             artist: json.artists[0].name,
-            album: json.album.name,
+            album: json.album.images[1].url,
             releaseYear: json.album.release_date.substring(0, 4)
           })
           const newRec = new Rec({
@@ -96,10 +96,14 @@ function newRec(req, res) {
 
 function index(req, res) {
   Rec.find({})
+  .populate('author')
   .then(recs => {
-    res.render('recs/index', {
-      title: 'Browse',
-      recs,
+    Song.populate(recs, [{ path: 'song'}])
+    .then(() => {
+      res.render('recs/index', {
+        title: 'Browse',
+        recs,
+      })
     })
   })
   .catch(err => {

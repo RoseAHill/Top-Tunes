@@ -2,11 +2,25 @@
 <%- include('../partials/nav') %>
 
 <main>
+<div id="all-recs" class="flex-row">
   <% if (recs.length != 0) { %>
-    <h2>recommendations go here</h2>
+    <% recs.reverse() %> 
+    <% recs.forEach(rec => { %>
+      <div class="rec rec-margin">
+        <img src="<%= rec.song.album %>" alt="album art for the song <%= rec.song.songTitle %> ">
+          <div class="rec-text">
+            <a href="https://open.spotify.com/track/<%= rec.song.spotifyId %>">
+              <h4 class="no-pad"><%= rec.song.songTitle %> by <%= rec.song.artist %></h4>
+            </a>
+            <p class="no-pad">"<%= rec.recMessage %>" - <a href="/profiles/<%= rec.author._id %>"><%= rec.author.displayName %></a></p>
+          </div>
+      </div>
+      
+    <% }) %>
   <% } else { %>
     <h2>No recommendations yet!</h2>
   <% } %>
+</div>
 </main>
 
 <%- include('../partials/footer') %>

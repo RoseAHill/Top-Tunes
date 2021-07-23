@@ -16,14 +16,15 @@
     </div>
   </div>
   <div class="profile-recs flex-row">
-    <% if (profile.recs.length) { %>
-      <% profile.recs.forEach(rec => { %>
+    <% if (recs.length != 0) { %>
+      <% recs.forEach(rec => { %>
         <div class="rec">
-          <img src="https://i.imgur.com/43hDQMy.jpeg" alt="default album art">
+          <img src="<%= rec.song.album %>" alt="album art for the song <%= rec.song.songTitle %> ">
           <div class="rec-text">
             <a href="https://open.spotify.com/track/<%= rec.song.spotifyId %>">
-              <h4><%= rec.song.songTitle %> - <%= rec.song.artist %></h4>
+              <h4 class="no-pad"><%= rec.song.songTitle %> by <%= rec.song.artist %></h4>
             </a>
+            <p class="no-pad">"<%= rec.recMessage %>"</p>
           </div>
         </div>
       <% }) %> 

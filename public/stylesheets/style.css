@@ -155,3 +155,36 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+
+.profile-recs {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.rec {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.no-pad {
+  margin: 0;
+}
+
+.rec-margin {
+  margin: 1rem 2rem;
+}
+
+#all-recs {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin: 0 auto;
+}
