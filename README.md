@@ -10,7 +10,7 @@ Top Tunes is a MEN stack web application built with the Spotify Web API that let
 
 ## Getting Started
 
-[Checkout the app here!]()
+[Checkout the app here!](https://toptunes.herokuapp.com/)
 
 - On the home page, you can view the recently added songs by all users.
 - To view other users pages you need to sign in first, then you can see all the songs someone recommended on their profile
