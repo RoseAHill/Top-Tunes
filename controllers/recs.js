@@ -67,6 +67,7 @@ function create(req, res) {
       recMessage: req.body.recMessage,
       song: songData._id
     })
+    self.recs.push(newRec._id)
     newRec.save()
   })
   .catch((err) => {
