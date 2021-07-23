@@ -64,6 +64,21 @@ function create(req, res) {
           console.log(err)
           res.redirect('/')
         })
+      } else if (song){
+        const newRec = new Rec({
+          author: self._id,
+          mood: req.body.mood,
+          recMessage: req.body.recMessage,
+          song: song._id
+        })
+        newRec.save()
+        .then(()=> {
+          self.recs.push(newRec._id)
+          self.save()
+          .then(() => {
+            res.redirect(`/profiles/${self._id}`)
+          })
+        })
       }
     })
   })

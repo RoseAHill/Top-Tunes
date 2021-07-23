@@ -76,6 +76,9 @@ function show(req, res) {
     Profile.findById(req.user._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
+      if (profile.recs.length != 0) {
+        console.log(profile.recs)
+      }
       res.render('profiles/show', {
         title: `${profile.displayName}`,
         profile,

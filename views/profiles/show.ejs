@@ -2,20 +2,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-<div class="flex-row">
-  <div class="profile profile-info">
-    <img class="user-pfp" src="<%= profile.avatar %>" alt="<%= profile.displayName %>'s avatar">
+<div class="profile">
+  <div class="profile-info">
+    <img class="pfp" src="<%= profile.avatar %>" alt="<%= profile.displayName %>'s avatar">
     <div class="profile-details">
       <h1><%= profile.displayName %></h1>
       <% if (profile.topTune) { %>
         <h3><%= profile.displayName %>'s Top Tune</h3>
         <p><%= profile.topTune %></p>
       <% } else if ( isSelf ) { %>
-        <a href="/">Add a top tune!</a>
+        <a href="/recs/new">Add a top tune!</a>
       <% } %>
     </div>
   </div>
-  <div class="profile profile-recs">
+  <div class="profile-recs flex-row">
     <% if (profile.recs.length) { %>
       <% profile.recs.forEach(rec => { %>
         <div class="rec">
