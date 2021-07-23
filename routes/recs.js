@@ -9,3 +9,5 @@ export {
 const router = Router()
 
 router.get('/', recsCtrl.index)
+router.get('/new', isLoggedIn, recsCtrl.new)
+router.post('/', isLoggedIn, recsCtrl.create)

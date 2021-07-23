@@ -15,6 +15,7 @@ import { passUserToView } from './middleware/middleware.js'
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js';
 import { router as profilesRouter } from './routes/profiles.js'
+import { router as recsRouter } from './routes/recs.js'
 
 // create the express app
 const app = express()
@@ -64,6 +65,7 @@ app.use(passUserToView)
 
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+app.use('/recs', recsRouter)
 app.use('/profiles', profilesRouter)
 
 // catch 404 and forward to error handler

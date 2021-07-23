@@ -6,6 +6,7 @@ export {
 
 const profileSchema = new mongoose.Schema(
   {
+    token: String,
     spotifyId: String,
     displayName: String,
     avatar: {
