@@ -16,6 +16,7 @@ passport.use(
           return done(null, user)
         } else {
           const newProfile = new Profile({
+            token: accessToken,
             spotifyId: profile.id,
             displayName: profile.displayName,
             avatar: profile.photos.length > 0 ? profile.photos[0].value : 'https://i.imgur.com/43hDQMy.jpeg',
