@@ -10,18 +10,19 @@ const recSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Profile'
     },
-    mood: [{
+    mood: {
       type: String,
       enum: ["neutral", "focus", "energize", "chill", "positive", "grieve"],
       default: "neutral"
-    }],
+    },
     recMessage: {
       type: String,
       default: "Check out this song!",
     },
     song: {
       type: mongoose.Schema.Types.ObjectId,
-      rec: 'Song'
+      rec: 'Song',
+      required: true
     },
   }, {
     timestamps: true

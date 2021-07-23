@@ -71,6 +71,7 @@ function recommend(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate('recs')
   .then(profile => {
     Profile.findById(req.user._id)
     .then(self => {

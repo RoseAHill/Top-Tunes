@@ -22,9 +22,8 @@ function create(req, res) {
     Song.findOne({ spotifyId: songId })
     .then((err, song) => {
       if (err) res.redirect('/')
-      if (song) {
-        songData = song
-      } else {
+      if (typeof song == "undefined") {
+        console.log("LETS FETCH THE SONG");
         const options = {
           headers: {
             [`Accept`]: `application/json`,
@@ -35,7 +34,7 @@ function create(req, res) {
         fetch(`https://api.spotify.com/v1/tracks/${songId}`, options)
         .then(data => data.json())
         .then(json => {
-          console.log(json)
+          console.log("LETS CREATE THE SONG");
           const newSong = new Song({
             spotifyId: songId,
             songTitle: json.name,
@@ -43,8 +42,23 @@ function create(req, res) {
             album: json.album.name,
             releaseYear: json.album.release_date.substring(0, 4)
           })
-          newSong.save()
-          songData = newSong
+          const newRec = new Rec({
+            author: self._id,
+            mood: req.body.mood,
+            recMessage: req.body.recMessage,
+            song: newSong._id
+          })
+          newSong.save(function(err) {
+            console.log(err)
+          })
+          newRec.save()
+          .then(()=> {
+            self.recs.push(newRec._id)
+            self.save()
+            .then(() => {
+              res.redirect(`/profiles/${self._id}`)
+            })
+          })
         })
         .catch(err => {
           console.log(err)
@@ -52,23 +66,6 @@ function create(req, res) {
         })
       }
     })
-    if (self.recs.length) {
-      const recSongs = self.recs.map(song => song._id)
-      // check if there is a song rec existing in user doc
-      if (recSongs.includes(songData._id)) {
-        // if so, for now redirect to users profile page
-        // later, edit the existing rec
-        res.redirect(`/profiles/${self._id}`)
-      }
-    }
-    const newRec = new Rec({
-      author: self._id,
-      mood: req.body.mood,
-      recMessage: req.body.recMessage,
-      song: songData._id
-    })
-    self.recs.push(newRec._id)
-    newRec.save()
   })
   .catch((err) => {
     console.log(err)

@@ -9,7 +9,4 @@ export {
 const router = Router()
 
 router.get('/', isLoggedIn, profileCtrl.index)
-router.get('/recommend', isLoggedIn, profileCtrl.recommend)
 router.get('/:id', isLoggedIn, profileCtrl.show)
-router.get('/:id/recs/new', isLoggedIn, profileCtrl.newRec)
-router.post('/:id/recs', profileCtrl.createRec)
