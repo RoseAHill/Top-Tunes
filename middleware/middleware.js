@@ -7,7 +7,7 @@ export {
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
-  res.redirect('auth/spotify')
+  res.redirect('/auth/spotify')
 }
 
 function passUserToView(req, res, next) {

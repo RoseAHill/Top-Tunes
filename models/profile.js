@@ -4,26 +4,6 @@ export {
   Profile
 }
 
-const recSchema = new mongoose.Schema(
-  {
-    song: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Song'
-    },
-    mood: [{
-      type: String,
-      enum: ["neutral", "focus", "energize", "chill", "positive", "grieve"],
-      default: "neutral"
-    }],
-    recMessage: {
-      type: String,
-      default: "Check out this song!",
-    }
-  }, {
-    timestamps: true
-  }
-)
-
 const profileSchema = new mongoose.Schema(
   {
     spotifyId: String,
@@ -40,7 +20,10 @@ const profileSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Song',
     },
-    recs: [recSchema]
+    recs: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Rec'
+    }]
   }, {
     timestamps: true
   }
