@@ -8,6 +8,25 @@ export {
   index,
   newRec as new,
   create,
+  deleteRec as delete,
+}
+
+function deleteRec(req, res) {
+  Rec.findById(req.params.id)
+  .then(rec => {
+    if (rec.author.equals(req.user._id)) {
+      rec.delete()
+      .then(() => {
+        res.redirect(`/profiles/${req.user._id}`)
+      })
+    } else {
+      throw new Error('NOT AUTHORIZED')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/recs`)
+  })
 }
 
 function create(req, res) {
