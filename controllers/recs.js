@@ -23,7 +23,6 @@ function create(req, res) {
     .then((err, song) => {
       if (err) res.redirect('/')
       if (typeof song == "undefined") {
-        console.log("LETS FETCH THE SONG");
         const options = {
           headers: {
             [`Accept`]: `application/json`,
@@ -34,11 +33,10 @@ function create(req, res) {
         fetch(`https://api.spotify.com/v1/tracks/${songId}`, options)
         .then(data => data.json())
         .then(json => {
-          console.log("LETS CREATE THE SONG");
           const newSong = new Song({
             spotifyId: songId,
             songTitle: json.name,
-            artist: json.artists[0].name,
+            artist: json.artists?.length ? json.artists[0].name : json.artists.name,
             album: json.album.images[1].url,
             releaseYear: json.album.release_date.substring(0, 4)
           })

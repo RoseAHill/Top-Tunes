@@ -24,7 +24,9 @@
             <a href="https://open.spotify.com/track/<%= rec.song.spotifyId %>">
               <h4 class="no-pad"><%= rec.song.songTitle %> by <%= rec.song.artist %></h4>
             </a>
-            <p class="no-pad">"<%= rec.recMessage %>"</p>
+            <p class="no-pad">"<%= rec.recMessage %>"<form action="/recs/<%= rec._id %>?_method=DELETE" method="post">
+              <button type="submit">X</button></form></p>
+            
           </div>
         </div>
       <% }) %> 

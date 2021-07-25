@@ -13,6 +13,8 @@ passport.use(
       Profile.findOne({ spotifyId: profile.id }, function (err, user) {
         if (err) return done(err)
         if (user) {
+          user.token = accessToken
+          user.save()
           return done(null, user)
         } else {
           const newProfile = new Profile({
