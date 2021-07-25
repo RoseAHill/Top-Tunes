@@ -18,7 +18,7 @@
   <div class="profile-recs flex-row">
     <% if (recs.length != 0) { %>
       <% recs.forEach(rec => { %>
-        <div class="rec">
+        <div class="rec rec-margin">
           <img src="<%= rec.song.album %>" alt="album art for the song <%= rec.song.songTitle %> ">
           <div class="rec-text">
             <a href="https://open.spotify.com/track/<%= rec.song.spotifyId %>" target="_blank">
