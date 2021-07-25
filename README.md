@@ -34,11 +34,10 @@ Top Tunes is a MEN stack web application built with the Spotify Web API that let
 
 ## Icebox Features
 
-- Removing a top tune from your profile
-- Upvoting other user's recommendations
-- Adding other user's recommendations to a personal list of songs to check out later
-- Adding podcast recommendations
-- Allow users to sort songs by mood
-- Allow users to make their profile private
-- Allow users to follow other users to get a personal feed of new recommendations
-- Users can set their favorite song under their profile info from their recommendations
+- [x] Removing a top tune from your profile
+- [ ] Users can set their favorite song under their profile info from their recommendations
+- [ ] Upvoting other user's recommendations
+- [ ] Adding other user's recommendations to a personal list of songs to check out later
+- [ ] Allow users to sort songs by mood
+- [ ] Allow users to make their profile private
+- [ ] Allow users to follow other users to get a personal feed of new recommendations
